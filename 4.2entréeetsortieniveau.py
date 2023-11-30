@@ -94,8 +94,8 @@ def generate_random_mapbis(size_map,proportion_wall):
     return matrice 
 
 def create_new_level(p,m,obj,size_map,proportion_wall):
-    nb_objets=random.randint(0,size_map[0]*size_map[1]-round((size_map[0]*size_map[1])*proportion_wall)) 
     m[:]=generate_random_mapbis(size_map,proportion_wall)
+    nb_objets=random.randint(0,size_map[0]*size_map[1]-round((size_map[0]*size_map[1])*proportion_wall)) 
     obj=create_objects(nb_objets,m)
     for i in range(len(m)-1):
         for j in range(len(m[0])-1):
