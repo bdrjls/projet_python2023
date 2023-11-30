@@ -269,8 +269,8 @@ def generate_random_mapbis(size_map,proportion_wall):
     return matrice #### on retourne notre nouvelle matrice quon va utiliser 
 
 def create_new_level(p,m,obj,size_map,proportion_wall):
-    nb_objets=random.randint(0,size_map[0]*size_map[1]-round((size_map[0]*size_map[1])*proportion_wall)) #### pour creer un nouveau niveau on a besoin dun nombre dobjet quon va avoir aleatoirement qui sera le reste parce que les murs sont deja inclus dans le nombre de case de la matrice 
     m[:]=generate_random_mapbis(size_map,proportion_wall) ### on modifie alors la matrice de base (celle de lancien niveau) par une autre 
+    nb_objets=random.randint(0,size_map[0]*size_map[1]-round((size_map[0]*size_map[1])*proportion_wall)) #### pour creer un nouveau niveau on a besoin dun nombre dobjet quon va avoir aleatoirement qui sera le reste parce que les murs sont deja inclus dans le nombre de case de la matrice 
     obj=create_objects(nb_objets,m)#### on cree a nouveau des objet on modifie alors la valeur de obj 
     for i in range(len(m)-1):
         for j in range(len(m[0])-1):
@@ -287,7 +287,7 @@ def infini_objet_ter(m,d,p,objet):#### on lance alors une boucle  infini tant qu
         updtate_bismurs(letter,p,m)       #### on regarde pour les murs et on met a jour 
         update_objects_bis(p, objet) ### pour la collecte des objets ausssi on maj
         if m[p['y']][p['x']]==3: #### si on atteint la sortie 
-            size_map=(random.randint(0,50),random.randint(0,50)) ### on recupere une nouvelle taille de map aleatoire 
+            size_map=(random.randint(1,50),random.randint(1,50)) ### on recupere une nouvelle taille de map aleatoire 
             proportion_wall=random.random()### une proportion de murs aleatoire comprise entre 0 et 1 
             create_new_level(p,m,objet,size_map,proportion_wall) ### et avec on cree un nouveau niveau avec les objets etc 
             continue #### et on continue 
@@ -332,7 +332,7 @@ def infini_objet_terbombes(m,d,p,objet):#### on lance alors une boucle  infini t
         updtate_bisbombes(letter,p,m)       #### on regarde pour les murs et on met a jour 
         update_objects_bis(p, objet) ### pour la collecte des objets ausssi on maj
         if m[p['y']][p['x']]==3: #### si on atteint la sortie 
-            size_map=(random.randint(0,50),random.randint(0,50)) ### on recupere une nouvelle taille de map aleatoire 
+            size_map=(random.randint(1,50),random.randint(1,50)) ### on recupere une nouvelle taille de map aleatoire 
             proportion_wall=random.random()### une proportion de murs aleatoire comprise entre 0 et 1 
             create_new_level(p,m,objet,size_map,proportion_wall) ### et avec on cree un nouveau niveau avec les objets etc 
             continue #### et on continue 
