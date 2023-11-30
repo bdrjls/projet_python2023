@@ -38,15 +38,15 @@ def update_objects_bis(p, objet):
         p['score']+=1 
         objet.remove(position)
 def create_new_level(p,m,obj,size_map,proportion_wall):
-    nb_objets=random.randint(0,size_map[0]*size_map[1]-round((size_map[0]*size_map[1])*proportion_wall)) 
-    m[:]=generate_random_mapbis(size_map,proportion_wall)
-    obj=create_objects(nb_objets,m)
-    for i in range(len(m)-1):
-        for j in range(len(m[0])-1):
-            if m[i][j]==2: 
-                p['x']=j 
-                p['y']=i
-    return 
+        m[:]=generate_random_mapbis(size_map,proportion_wall)
+        nb_objets=random.randint(0,size_map[0]*size_map[1]-round((size_map[0]*size_map[1])*proportion_wall)) 
+        obj=create_objects(nb_objets,m)
+        for i in range(len(m)-1):
+                for j in range(len(m[0])-1):
+                    if m[i][j]==2: 
+                        p['x']=j 
+                        p['y']=i
+        return 
 def create_objects(nb_objets,m):
     s=set()  
     for i in range(nb_objets):  
@@ -128,7 +128,7 @@ def infini_objet_terbombes(m,d,p,objet):
         updtate_bisbombes(letter,p,m)
         update_objects_bis(p, objet) 
         if m[p['y']][p['x']]==3: 
-            size_map=(random.randint(0,50),random.randint(0,50)) 
+            size_map=(random.randint(1,50),random.randint(1,50)) 
             proportion_wall=random.random()
             create_new_level(p,m,objet,size_map,proportion_wall) 
             continue
