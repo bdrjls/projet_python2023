@@ -128,7 +128,11 @@ def infini_objet_terbombes(m,d,p,objet):
         updtate_bisbombes(letter,p,m)
         update_objects_bis(p, objet) 
         if m[p['y']][p['x']]==3: 
-            size_map=(random.randint(1,50),random.randint(1,50)) 
+            size_map=(random.randint(1,50),random.randint(1,50))
+            x=1
+            while x>0.5:
+                x=random.random()
+                if x<0.5:    
             proportion_wall=random.random()
             create_new_level(p,m,objet,size_map,proportion_wall) 
             continue
