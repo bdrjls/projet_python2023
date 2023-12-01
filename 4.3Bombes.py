@@ -133,6 +133,6 @@ def infini_objet_terbombes(m,d,p,objet):
             while x>0.5:
                 x=random.random()
                 if x<0.5:    
-            proportion_wall=random.random()
+                    proportion_wall=x
             create_new_level(p,m,objet,size_map,proportion_wall) 
             continue
