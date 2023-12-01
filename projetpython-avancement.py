@@ -333,7 +333,11 @@ def infini_objet_terbombes(m,d,p,objet):#### on lance alors une boucle  infini t
         update_objects_bis(p, objet) ### pour la collecte des objets ausssi on maj
         if m[p['y']][p['x']]==3: #### si on atteint la sortie 
             size_map=(random.randint(1,50),random.randint(1,50)) ### on recupere une nouvelle taille de map aleatoire 
-            proportion_wall=random.random()### une proportion de murs aleatoire comprise entre 0 et 1 
+            x=1
+            while x>0.5: #### on force le nombre de mur a etre inferieur a 0,5 pour ne pas en abuser 
+                x=random.random()
+                if x<0.5:
+                    proportion_wall=x### une proportion de murs aleatoire comprise entre 0 et 1 
             create_new_level(p,m,objet,size_map,proportion_wall) ### et avec on cree un nouveau niveau avec les objets etc 
             continue #### et on continue 
 
